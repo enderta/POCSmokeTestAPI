@@ -1,3 +1,4 @@
+
 const qaAPIURL = Cypress.env('QA_API_URL');
 const qaToken = Cypress.env('QA_TOKEN');
 
