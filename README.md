@@ -13,6 +13,7 @@ There is a cypress.env.example file that you can use to create your own cypress.
 
 - JavaScript
 - Cypress
+- Docker
 
 
 ## Running Tests
@@ -25,4 +26,8 @@ npx cypress open
 # or
 
 npx cypress run
+
+# or
+
+run_cypress_tests.sh for docker 
 ```
