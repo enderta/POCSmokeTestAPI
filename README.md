@@ -1,6 +1,8 @@
 # POC
 
-This project is a proof of concept (POC) that uses Cypress for end-to-end testing, BDD (Behavior Driven Development) methodology, Gherkin syntax for writing test cases, and Mochawesome for generating test reports.
+This project is a proof of concept (POC) that uses Cypress for API smoke testing. 
+There is a cypress.env.example file that you can use to create your own cypress.env.json file.
+
 
 ## Prerequisites
 
@@ -11,9 +13,7 @@ This project is a proof of concept (POC) that uses Cypress for end-to-end testin
 
 - JavaScript
 - Cypress
-- BDD
-- Gherkin
-- Mochawesome
+
 
 ## Running Tests
 
