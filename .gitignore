@@ -1,4 +1,4 @@
 cypress.env.json
 .idea
 node_modules
-
+.env
