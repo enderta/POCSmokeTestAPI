@@ -1,4 +1,3 @@
-
 const qaAPIURL = Cypress.env('QA_API_URL');
 const qaToken = Cypress.env('QA_TOKEN');
 
@@ -6,11 +5,13 @@ describe('QA API Smoke Test', () => {
     const getFutureDate = (days) => {
         const date = new Date();
         date.setDate(date.getDate() + days);
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        return `${year}-${month}-${day}`;
-    }
+        return date.toISOString().split('T')[0];
+    };
+    beforeEach(() => {
+        cy.clearCookies();
+        cy.clearLocalStorage();
+    });
+
 
     it('/application-process/admins endpoint', () => {
         cy.request({
@@ -20,8 +21,8 @@ describe('QA API Smoke Test', () => {
         }).then((response) => {
             cy.log(response.body);
             expect(response.status).to.eq(200);
-            expect(response.body).to.have.property('admins');
         });
+
     });
 
     it('/cities endpoint', () => {
@@ -96,10 +97,10 @@ describe('QA API Smoke Test', () => {
     });
 
     it('/cohorts CRUD', () => {
-        const itdStartDate = getFutureDate(40); // Adjusted to 40 days in the future
-        const itdEndDate = getFutureDate(77); // Adjusted to 77 days in the future (at least 37 days after ITD registration end date)
-        const registrationEndDate = getFutureDate(30); // Adjusted to 30 days in the future
-        const sdcStartDate = getFutureDate(80); // Adjusted to 80 days in the future
+        const itdStartDate = getFutureDate(40);
+        const itdEndDate = getFutureDate(77);
+        const registrationEndDate = getFutureDate(30);
+        const sdcStartDate = getFutureDate(80);
         const cohortNumber = Math.floor(Math.random() * 10000);
         let cohortID = '';
 

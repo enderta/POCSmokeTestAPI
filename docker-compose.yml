@@ -4,6 +4,7 @@ services:
     build:
       context: .
     environment:
+      - NODE_OPTIONS=--max-old-space-size=4096
       - LOCAL_API_URL=${LOCAL_API_URL}
       - LOCAL_APPLICATION_URL=${LOCAL_APPLICATION_URL}
       - LOCAL_DASHBOARD_URL=${LOCAL_DASHBOARD_URL}
@@ -33,3 +34,9 @@ services:
       - STAGING_TOKEN=${STAGING_TOKEN}
     volumes:
       - .:/e2e
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: '2'
+

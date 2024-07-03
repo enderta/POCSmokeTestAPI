@@ -1,13 +1,31 @@
 const { defineConfig } = require('cypress');
 const fs = require('fs');
+const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/lib');
 
 module.exports = defineConfig({
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-
+  experimentalMemoryManagement: true,
+  reporter: 'cypress-mochawesome-reporter',
+  reporterOptions: {
+    charts: true,
+    reportPageTitle: 'custom-title',
+    embeddedScreenshots: true,
+    inlineAssets: true,
+    saveAllAttempts: false,
   },
+      e2e: {
+        setupNodeEvents(on, config) {
+          on('before:run', async (details) => {
+            console.log('override before:run');
+            await beforeRunHook(details);
+          });
+
+          on('after:run', async () => {
+            console.log('override after:run');
+            await afterRunHook();
+          });
+        },
+      },
+
   env: (() => {
     const envPath = './cypress.env.json';
     if (fs.existsSync(envPath)) {
