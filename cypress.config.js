@@ -1,5 +1,6 @@
 const { defineConfig } = require('cypress');
 const fs = require('fs');
+<<<<<<< HEAD
 const { beforeRunHook, afterRunHook } = require('cypress-mochawesome-reporter/lib');
 
 module.exports = defineConfig({
@@ -26,6 +27,16 @@ module.exports = defineConfig({
         },
       },
 
+=======
+
+module.exports = defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
+
+  },
+>>>>>>> 233bdbc53143875e363ff6a52111bbf060633f23
   env: (() => {
     const envPath = './cypress.env.json';
     if (fs.existsSync(envPath)) {
