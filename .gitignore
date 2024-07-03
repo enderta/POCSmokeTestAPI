@@ -2,6 +2,6 @@ cypress.env.json
 .idea
 node_modules
 .env
-./cypress/screenshots/
+screenshots
 ./cypress/videos/
 reports
