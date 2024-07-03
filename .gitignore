@@ -2,9 +2,6 @@ cypress.env.json
 .idea
 node_modules
 .env
-.env
-<<<<<<< HEAD
-.env
-.env
-=======
->>>>>>> 233bdbc53143875e363ff6a52111bbf060633f23
+./cypress/screenshots/
+./cypress/videos/
+./cypress/reports/
