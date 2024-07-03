@@ -1,17 +1,11 @@
 #!/bin/bash
-<<<<<<< HEAD
-export $(cat .env)
-docker-compose up --build --exit-code-from cypress --abort-on-container-exit
-=======
 
-# Load environment variables from .env file
-if [ -f .env ]; then
-  export $(cat .env | grep -v '#' | awk '/=/ {print $1}')
-fi
+export $(cat .env)
+
 
 # Build and run the Docker container
 docker-compose up --build --exit-code-from cypress --abort-on-container-exit
 
 # Clean up the Docker containers after the tests
->>>>>>> 233bdbc53143875e363ff6a52111bbf060633f23
+
 docker-compose down --rmi all -v --remove-orphans
