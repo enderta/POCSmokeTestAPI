@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test:cypress": "cypress run --spec cypress/integration/smokeTest.feature --browser chrome"
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
