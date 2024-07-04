@@ -52,6 +52,17 @@ describe('QA API Smoke Test', () => {
         });
     });
 
+    it('/cities endpoint without token', () => {
+        cy.request({
+            method: 'GET',
+            url: `${qaAPIURL}/cities`,
+        }).then(response => {
+            cy.log(response.body);
+            expect(response.status).to.eq(200);
+            expect(response.body).to.have.property('cities');
+        });
+    });
+
     it('/regions endpoint', () => {
         const path = '/regions';
         const expectProperty = 'regions';
@@ -109,17 +120,6 @@ describe('QA API Smoke Test', () => {
             cy.log(response.body);
             expect(response.status).to.eq(200);
             expect(response.body).to.have.property(expectProperty);
-        });
-    });
-
-    it('/cities endpoint without token', () => {
-        cy.request({
-            method: 'GET',
-            url: `${qaAPIURL}/cities`,
-        }).then(response => {
-            cy.log(response.body);
-            expect(response.status).to.eq(200);
-            expect(response.body).to.have.property('cities');
         });
     });
 
