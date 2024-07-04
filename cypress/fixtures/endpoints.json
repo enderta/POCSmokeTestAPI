@@ -1,0 +1,10 @@
+{
+  "endpoints": [
+    { "path": "/application-process/admins", "expectProperty": "admins" },
+    { "path": "/cities", "expectProperty": "cities" },
+    { "path": "/regions", "expectProperty": "regions" },
+    { "path": "/teams", "expectProperty": "teams" },
+    { "path": "/employers", "expectProperty": "employers" },
+    { "path": "/stats", "expectProperty": "stats" }
+  ]
+}
